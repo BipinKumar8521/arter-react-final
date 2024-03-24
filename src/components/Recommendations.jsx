@@ -16,7 +16,6 @@ const Recommendations = () => {
     spaceBetween: 30,
     speed: 1400,
     autoplay: false,
-    autoplaySpeed: 5000,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,

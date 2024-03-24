@@ -22,18 +22,16 @@ const Home = (props) => {
         "https://portfolio-backend-30mp.onrender.com/api/v1/get/user/65b3a22c01d900e96c4219ae"
       );
       const data = await response.json();
-      setData(data);
-      console.log(data);
+      setData(data.user);
+
       setLoading(false);
     } catch (error) {
       setError(error);
-      console.log(error);
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchData();
     // Scrollbar.use(OverscrollPlugin);
 
     Scrollbar.init(document.querySelector("#scrollbar"), {
@@ -57,6 +55,10 @@ const Home = (props) => {
         continuousScrolling: true,
       });
     });
+  }, []);
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -86,6 +88,11 @@ const Home = (props) => {
       },
     });
   }, []);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   return (
     <div className="transition-fade" id="swup">
       {/* scroll frame */}
